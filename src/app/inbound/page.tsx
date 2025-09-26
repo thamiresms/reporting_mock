@@ -5,14 +5,11 @@ import { useRouter } from 'next/navigation'
 import { MainLayout } from '@/components/layout/MainLayout'
 import { useCallDirection } from '@/contexts/CallDirectionContext'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
-import { Tabs } from '@/components/ui/Tabs'
 import { DateRangePicker } from '@/components/ui/DateRangePicker'
-import { ProgressBar } from '@/components/ui/ProgressBar'
 import { HorizontalBarChart } from '@/components/ui/HorizontalBarChart'
 import { CallReasonBreakdown } from '@/components/ui/CallReasonBreakdown'
 import { SimpleChart } from '@/components/ui/SimpleChart'
 import { ToggleGroup } from '@/components/ui/ToggleGroup'
-import { Button } from '@/components/Button'
 import { InboundCallReason, TransferReason } from '@/types'
 
 // Professional color palette - monochromatic blue with good contrast
@@ -427,11 +424,6 @@ const mockOutboundCallReasons: InboundCallReason[] = [
       },
     ],
   },
-]
-
-const tabs = [
-  { id: 'inbound', label: 'INBOUND CALLS' },
-  { id: 'transfer-reasons', label: 'Transfer Reasons' },
 ]
 
 export default function InboundPage() {

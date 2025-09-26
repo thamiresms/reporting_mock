@@ -12,7 +12,6 @@ import {
   YAxis, 
   CartesianGrid, 
   Tooltip, 
-  Legend,
   ReferenceLine
 } from 'recharts'
 import { cn } from '@/lib/utils'
@@ -44,7 +43,7 @@ export function SimpleChart({
   const average = showAverageLine ? data.reduce((sum, d) => sum + d.value, 0) / data.length : 0
 
   // Custom tooltip
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
     if (active && payload && payload.length) {
       return (
         <div className="rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
@@ -101,7 +100,7 @@ export function SimpleChart({
                 stroke="#94a3b8" 
                 strokeDasharray="5 5" 
                 strokeWidth={1.5}
-                label={{ value: `Avg: ${Math.round(average)}`, position: "topRight", fontSize: 11, fill: '#6b7280' }}
+                label={{ value: `Avg: ${Math.round(average)}`, position: "top", fontSize: 11, fill: '#6b7280' }}
               />
             )}
           </AreaChart>
@@ -137,7 +136,7 @@ export function SimpleChart({
                 stroke="#94a3b8" 
                 strokeDasharray="5 5" 
                 strokeWidth={1.5}
-                label={{ value: `Avg: ${Math.round(average)}`, position: "topRight", fontSize: 11, fill: '#6b7280' }}
+                label={{ value: `Avg: ${Math.round(average)}`, position: "top", fontSize: 11, fill: '#6b7280' }}
               />
             )}
           </LineChart>
@@ -170,14 +169,18 @@ export function SimpleChart({
                 stroke="#94a3b8" 
                 strokeDasharray="5 5" 
                 strokeWidth={1.5}
-                label={{ value: `Avg: ${Math.round(average)}`, position: "topRight", fontSize: 11, fill: '#6b7280' }}
+                label={{ value: `Avg: ${Math.round(average)}`, position: "top", fontSize: 11, fill: '#6b7280' }}
               />
             )}
           </BarChart>
         )
       
       default:
-        return null
+        return (
+          <div className="flex items-center justify-center h-40 text-gray-500">
+            Unsupported chart type
+          </div>
+        )
     }
   }
 

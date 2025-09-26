@@ -7,9 +7,7 @@ import { useCallDirection } from '@/contexts/CallDirectionContext'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ToggleGroup } from '@/components/ui/ToggleGroup'
 import { DateRangePicker } from '@/components/ui/DateRangePicker'
-import { ProgressBar } from '@/components/ui/ProgressBar'
 import { HorizontalBarChart } from '@/components/ui/HorizontalBarChart'
-import { Button } from '@/components/Button'
 import { TransferReason } from '@/types'
 
 // Professional color palette - monochromatic blue with good contrast (same as call breakdown)
@@ -167,10 +165,6 @@ export default function TransferReasonsPage() {
     'separately'
   )
 
-  const totalTransferReasons = mockTransferReasons.reduce(
-    (sum, reason) => sum + reason.count,
-    0
-  )
 
   return (
     <MainLayout>

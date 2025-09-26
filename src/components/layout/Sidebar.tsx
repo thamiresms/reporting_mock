@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { NavigationItem } from '@/types'
 import {
-  UserIcon,
   ChartBarIcon,
   PhoneIcon,
   UsersIcon,
@@ -23,7 +22,7 @@ interface NavigationSection {
   items: NavigationItemWithIcon[]
 }
 
-interface NavigationItemWithIcon extends Omit<NavigationItem, 'icon'> {
+interface NavigationItemWithIcon extends Omit<NavigationItem, 'icon' | 'children'> {
   icon?: React.ComponentType<{ className?: string }>
   children?: NavigationItemWithIcon[]
 }

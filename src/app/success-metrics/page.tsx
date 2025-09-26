@@ -63,7 +63,7 @@ export default function SuccessMetricsPage() {
   }
 
   // Helper function to create KPI card
-  const createKPICard = (title: string, value: any, data: any[], suffix: string = '%', prefix: string = '') => (
+  const createKPICard = (title: string, value: number, data: { label: string; value: number }[], suffix: string = '%', prefix: string = '') => (
     <Card className="shadow-sm" key={title}>
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between">
@@ -221,13 +221,13 @@ export default function SuccessMetricsPage() {
 
         {/* KPI Grid */}
         <div className="mb-6 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-          {currentData.kpis.map((kpi, index) => 
+          {currentData.kpis.map((kpi) => 
             createKPICard(
               kpi.title,
               kpi.value,
               kpi.data,
-              kpi.suffix || '%',
-              kpi.prefix || ''
+              (kpi as { suffix?: string }).suffix || '%',
+              (kpi as { prefix?: string }).prefix || ''
             )
           )}
         </div>

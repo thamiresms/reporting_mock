@@ -13,7 +13,7 @@ interface DateRangePickerProps {
 export function DateRangePicker({
   startDate,
   endDate,
-  onDateChange,
+  onDateChange: _onDateChange,
   className,
 }: DateRangePickerProps) {
   const [isOpen, setIsOpen] = useState(false)

@@ -22,7 +22,7 @@ export function CallReasonBreakdown({
   reason,
   onClose,
   className,
-  dateRange,
+  dateRange: _dateRange,
 }: CallReasonBreakdownProps) {
   const [activeTab, setActiveTab] = useState<'overview' | 'transfers'>(
     'overview'
